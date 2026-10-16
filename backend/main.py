@@ -1,4 +1,3 @@
-import os
 from contextlib import asynccontextmanager
 
 from dotenv import load_dotenv
@@ -10,8 +9,6 @@ from db import close_pool, get_conn, open_pool
 from errors import register_error_handlers
 
 load_dotenv()
-
-PUBLIC_API_URL = os.getenv("PUBLIC_API_URL", "https://dummyjson.com/products?limit=12")
 
 
 @asynccontextmanager
