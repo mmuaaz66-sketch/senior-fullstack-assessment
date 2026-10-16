@@ -7,6 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from auth import router as auth_router
 from db import close_pool, get_conn, open_pool
 from errors import register_error_handlers
+from selections import router as selections_router
+from skus import router as skus_router
 
 load_dotenv()
 
@@ -24,6 +26,8 @@ app.add_middleware(
 )
 register_error_handlers(app)
 app.include_router(auth_router)
+app.include_router(skus_router)
+app.include_router(selections_router)
 
 
 @app.get("/health")
